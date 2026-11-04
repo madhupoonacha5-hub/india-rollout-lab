@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>India Rollout Lab | Madhu Poonacha</title>
+<style>
+:root{color-scheme:light;--ink:#192b25;--muted:#4d635b;--paper:#f6f8f4;--line:#dce6db;--green:#185d43;--mint:#dff3e2}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,sans-serif}main{width:min(1120px,calc(100% - 36px));margin:0 auto;padding:48px 0 26px}
+header{background:#153c30;color:#fff;border-radius:25px;padding:clamp(25px,5vw,58px)}h1{font-size:clamp(36px,6vw,66px);line-height:1.04;margin:12px 0;letter-spacing:-.055em}header p{max-width:670px;color:#e1eee6;margin:12px 0 0}.eyebrow{font-size:.75rem;font-weight:750;letter-spacing:.11em;text-transform:uppercase}.controls,.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:16px}.controls{display:flex;gap:14px;align-items:end;flex-wrap:wrap}.controls label{display:grid;gap:4px;font-weight:650}.controls button,select{font:inherit;border:1px solid #adc0b3;border-radius:9px;padding:9px 13px;background:white;color:var(--ink)}.controls button{background:var(--green);color:white;border-color:var(--green);font-weight:700;cursor:pointer}button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #ae6509;outline-offset:3px}.note{color:var(--muted);font-size:.9rem}.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.metric h2,.panel h2{margin:4px 0 10px;font-size:1.3rem}.delta{font-size:2.5rem;font-weight:750;letter-spacing:-.045em;line-height:1.15}.bar-row{margin-top:13px}.bar-label{display:flex;justify-content:space-between;gap:10px;font-size:.9rem}.track{height:9px;background:#edf1ed;border-radius:20px;margin-top:4px}.bar{height:100%;border-radius:20px;background:#70877b}.localized{background:#1c8159}.decision{background:var(--mint)}.decision[data-state="hold"]{background:#fff1d7}table{width:100%;border-collapse:collapse;font-size:.92rem;text-align:left}th,td{padding:9px;border-bottom:1px solid var(--line)}summary{font-weight:700;cursor:pointer}.scroll{overflow:auto}footer{margin-top:22px}.pill{display:inline-block;padding:3px 10px;border-radius:20px;background:#dff3e2;color:#184c36;font-size:.75rem;font-weight:750}[hidden]{display:none!important}@media(max-width:620px){main{padding-top:20px}.metrics{grid-template-columns:1fr}header{border-radius:17px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <span class="pill">Independent portfolio demo · Synthetic data</span>
+  <h1>India Rollout Lab</h1>
+  <p>Evaluate a localized onboarding pilot. Compare first-lesson completion with day-7 retention, then decide whether the next rollout should proceed.</p>
+</header>
+<div class="controls">
+  <label for="market">Market
+    <select id="market">
+      <option value="all">Both markets</option>
+      <option value="Bengaluru">Bengaluru</option>
+      <option value="Hyderabad">Hyderabad</option>
+    </select>
+  </label>
+  <button id="run">Run rollout review</button>
+  <span class="note">Baseline vs. localized onboarding · 400 synthetic learners</span>
+</div>
+<noscript><p>Enable JavaScript to run the rollout review.</p></noscript>
+<section id="results" hidden aria-label="Rollout results">
+  <section id="decision" class="panel decision" aria-live="polite"></section>
+  <div id="metrics" class="metrics"></div>
+  <details class="panel">
+    <summary>Inspect counts and metric definitions</summary>
+    <div id="evidence" class="scroll"></div>
+    <p><strong>Activation.</strong> Unique learners with a first lesson completion in the first 24 hours, divided by learners with a complete 24-hour observation window.</p>
+    <p><strong>Day-7 retention.</strong> Unique learners with an activity event from 168 to under 192 hours after onboarding, divided by learners whose full day-7 window elapsed.</p>
+    <p class="note">Cohorts are synthetic and non-randomized. The comparison is descriptive. It cannot establish a causal lift or production readiness.</p>
+  </details>
+</section>
+<footer class="note">Madhu Poonacha · Growth, product localization and regional execution</footer>
+</main>
+<script type="application/json" id="snapshots">
+{
+  "all": {
+    "as_of": "2026-10-20T00:00:00+00:00",
+    "market": null,
+    "cohorts": {
+      "baseline": {
+        "started": 200,
+        "activation_eligible": 200,
+        "activated": 112,
+        "retention_eligible": 200,
+        "retained": 62,
+        "activation_rate": 0.56,
+        "retention_rate": 0.31
+      },
+      "localized": {
+        "started": 200,
+        "activation_eligible": 200,
+        "activated": 128,
+        "retention_eligible": 200,
+        "retained": 60,
+        "activation_rate": 0.64,
+        "retention_rate": 0.3
+      }
+    }
+  },
+  "Bengaluru": {
+    "as_of": "2026-10-20T00:00:00+00:00",
+    "market": "Bengaluru",
+    "cohorts": {
+      "baseline": {
+        "started": 100,
+        "activation_eligible": 100,
+        "activated": 58,
+        "retention_eligible": 100,
+        "retained": 32,
+        "activation_rate": 0.58,
+        "retention_rate": 0.32
+      },
+      "localized": {
+        "started": 100,
+        "activation_eligible": 100,
+        "activated": 69,
+        "retention_eligible": 100,
+        "retained": 32,
+        "activation_rate": 0.69,
+        "retention_rate": 0.32
+      }
+    }
+  },
+  "Hyderabad": {
+    "as_of": "2026-10-20T00:00:00+00:00",
+    "market": "Hyderabad",
+    "cohorts": {
+      "baseline": {
+        "started": 100,
+        "activation_eligible": 100,
+        "activated": 54,
+        "retention_eligible": 100,
+        "retained": 30,
+        "activation_rate": 0.54,
+        "retention_rate": 0.3
+      },
+      "localized": {
+        "started": 100,
+        "activation_eligible": 100,
+        "activated": 59,
+        "retention_eligible": 100,
+        "retained": 28,
+        "activation_rate": 0.59,
+        "retention_rate": 0.28
+      }
+    }
+  }
+}
+</script>
+<script>
+"use strict";
+const snapshots = JSON.parse(document.getElementById("snapshots").textContent);
+const market = document.getElementById("market");
+const results = document.getElementById("results");
+const percent = value => value === null ? "—" : (100 * value).toFixed(1) + "%";
+const points = value => (value > 0 ? "+" : "") + (100 * value).toFixed(1) + " pp";
+
+function metric(title, base, local, rate, count, eligible) {
+  const delta = base[rate] === null || local[rate] === null ? null : local[rate] - base[rate];
+  const bars = [[base,"Baseline",""], [local,"Localized","localized"]].map(([row,label,style]) => `
+    <div class="bar-row">
+      <div class="bar-label"><span>${label}</span><strong>${percent(row[rate])} · ${row[count]}/${row[eligible]}</strong></div>
+      <div class="track" aria-hidden="true"><div class="bar ${style}" style="width:${(row[rate] ?? 0)*100}%"></div></div>
+    </div>`).join("");
+  return `<section class="panel metric"><h2>${title}</h2><div class="delta">${delta === null ? "—" : points(delta)}</div>${bars}</section>`;
+}
+
+function runReview() {
+  const snapshot = snapshots[market.value];
+  const {baseline, localized} = snapshot.cohorts;
+  const activation = localized.activation_rate - baseline.activation_rate;
+  const retention = localized.retention_rate - baseline.retention_rate;
+  let title = "Continue the pilot and collect evidence";
+  let next = "Keep rollout coverage stable and validate the activation and retention signals in a randomized follow-up.";
+  let state = "continue";
+  if ([baseline.activation_rate, localized.activation_rate, baseline.retention_rate, localized.retention_rate].some(value => value === null)) {
+    title = "Wait for mature cohorts";
+    next = "Collect complete observation windows before comparing outcomes.";
+    state = "hold";
+  } else if (retention < -1e-9) {
+    title = "Hold expansion and investigate retention";
+    next = "Review the first-week journey by market and app version. Check lesson difficulty, return prompts and event instrumentation, then test one change against a randomized comparison.";
+    state = "hold";
+  } else if (activation <= 0) {
+    title = "Refine onboarding before expanding";
+    next = "Review onboarding drop-off and test the highest-friction step.";
+    state = "hold";
+  }
+  document.getElementById("decision").dataset.state = state;
+  document.getElementById("decision").innerHTML = `
+    <span class="eyebrow">Decision · ${snapshot.market || "Both markets"}</span>
+    <h2>${title}</h2><p>${next}</p>
+    <p class="note">Illustrative rule: hold expansion if day-7 retention declines. A stable retention signal still calls for validation before expansion.</p>`;
+  document.getElementById("metrics").innerHTML =
+    metric("First lesson within 24 hours", baseline, localized, "activation_rate", "activated", "activation_eligible") +
+    metric("Returned on day 7", baseline, localized, "retention_rate", "retained", "retention_eligible");
+  const rows = [["Baseline",baseline],["Localized",localized]].map(([label,row]) =>
+    `<tr><th scope="row">${label}</th><td>${row.started}</td><td>${row.activated}/${row.activation_eligible}</td><td>${row.retained}/${row.retention_eligible}</td></tr>`).join("");
+  document.getElementById("evidence").innerHTML = `<p class="note">Snapshot cutoff ${snapshot.as_of}</p><table><thead><tr><th>Cohort</th><th>Started</th><th>Activated / eligible</th><th>Returned / eligible</th></tr></thead><tbody>${rows}</tbody></table>`;
+  results.hidden = false;
+}
+
+document.getElementById("run").addEventListener("click", runReview);
+market.addEventListener("change", () => { results.hidden = true; });
+</script>
+</body>
+</html>
