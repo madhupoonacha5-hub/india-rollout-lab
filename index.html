@@ -1,178 +1,184 @@
 <!doctype html>
 <html lang="en">
-<head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>India Rollout Lab | Madhu Poonacha</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>India Growth Strategy · Madhu Poonacha</title>
 <style>
-:root{color-scheme:light;--ink:#192b25;--muted:#4d635b;--paper:#f6f8f4;--line:#dce6db;--green:#185d43;--mint:#dff3e2}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,sans-serif}main{width:min(1120px,calc(100% - 36px));margin:0 auto;padding:48px 0 26px}
-header{background:#153c30;color:#fff;border-radius:25px;padding:clamp(25px,5vw,58px)}h1{font-size:clamp(36px,6vw,66px);line-height:1.04;margin:12px 0;letter-spacing:-.055em}header p{max-width:670px;color:#e1eee6;margin:12px 0 0}.eyebrow{font-size:.75rem;font-weight:750;letter-spacing:.11em;text-transform:uppercase}.controls,.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:16px}.controls{display:flex;gap:14px;align-items:end;flex-wrap:wrap}.controls label{display:grid;gap:4px;font-weight:650}.controls button,select{font:inherit;border:1px solid #adc0b3;border-radius:9px;padding:9px 13px;background:white;color:var(--ink)}.controls button{background:var(--green);color:white;border-color:var(--green);font-weight:700;cursor:pointer}button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #ae6509;outline-offset:3px}.note{color:var(--muted);font-size:.9rem}.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.metric h2,.panel h2{margin:4px 0 10px;font-size:1.3rem}.delta{font-size:2.5rem;font-weight:750;letter-spacing:-.045em;line-height:1.15}.bar-row{margin-top:13px}.bar-label{display:flex;justify-content:space-between;gap:10px;font-size:.9rem}.track{height:9px;background:#edf1ed;border-radius:20px;margin-top:4px}.bar{height:100%;border-radius:20px;background:#70877b}.localized{background:#1c8159}.decision{background:var(--mint)}.decision[data-state="hold"]{background:#fff1d7}table{width:100%;border-collapse:collapse;font-size:.92rem;text-align:left}th,td{padding:9px;border-bottom:1px solid var(--line)}summary{font-weight:700;cursor:pointer}.scroll{overflow:auto}footer{margin-top:22px}.pill{display:inline-block;padding:3px 10px;border-radius:20px;background:#dff3e2;color:#184c36;font-size:.75rem;font-weight:750}[hidden]{display:none!important}@media(max-width:620px){main{padding-top:20px}.metrics{grid-template-columns:1fr}header{border-radius:17px}}
+:root{--ink:#142117;--muted:#52665a;--line:#dce7df;--green:#58cc02;--paper:#f7faf8;--navy:#12201a}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 system-ui,sans-serif}button,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:6px;padding:9px 14px;background:white;color:var(--ink);font-weight:650}button:focus-visible,select:focus-visible{outline:3px solid #0870aa;outline-offset:3px}button:disabled{opacity:.55;cursor:default}[hidden]{display:none!important}.shell{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:100vh}aside{background:var(--navy);color:#f5fff1;padding:28px 18px}.brand{font-size:23px;font-weight:800;line-height:1.2}.mark{display:inline-grid;place-items:center;background:var(--green);color:#10220d;border-radius:9px;width:35px;height:35px;margin-right:9px}.tag{font-size:10px;letter-spacing:.14em;font-weight:750;text-transform:uppercase}.brand-note{display:block;color:#a8bbaa;margin:12px 0 32px}.steps{list-style:none;margin:0;padding:0}.steps li{padding:12px;margin-bottom:4px;color:#b5c5b9;border-left:3px solid transparent}.steps [aria-current=step]{background:#29402f;border-color:var(--green);color:white}.side-note{margin-top:38px;color:#a8bbaa;font-size:12px}.main{max-width:1340px;width:100%;margin:0 auto;padding:0 clamp(18px,4vw,58px) 42px}header{min-height:65px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted)}.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:32px;align-items:center;padding:48px 0 35px}.hero h1{font-size:clamp(40px,5vw,74px);line-height:.99;letter-spacing:-.055em;margin:12px 0}.hero h1 strong{color:#288900}.hero p,.note{color:var(--muted)}.primary{background:var(--green);border-color:var(--green);box-shadow:0 3px #3e9800}.hero-art{background:radial-gradient(circle at 85% 15%,#4c742c,#173021 63%);border-radius:10px;padding:24px;color:#efffe8;min-height:220px;display:grid;align-content:center;gap:12px}.hero-art b{font-size:25px}.hero-art span{color:#d0e5c9}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.panel{background:white;border:1px solid var(--line);border-radius:9px;padding:20px;min-width:0}.panel h2,.panel h3{margin:4px 0 10px}.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:14px}.toolbar output{margin-left:auto;color:var(--muted)}.caption{padding:12px 16px;background:#eaf7de;border-left:4px solid var(--green);margin:0 0 16px;min-height:50px}.choices{display:grid;gap:10px}.choices label{display:grid;gap:4px;font-weight:650}.choices select{width:100%;padding:9px;border:1px solid #b9ccbe;background:#fff;border-radius:6px;color:var(--ink)}.lesson{border:1px solid var(--line);background:#f7faf8;padding:14px;border-radius:8px}.lesson p{margin:6px 0}.hint{font-size:13px;color:var(--muted)}.call{margin-top:12px;background:#173021;color:#efffe8;border-radius:8px;padding:15px}.call p{margin:6px 0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0}.metric{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px}.metric b{display:block;font-size:clamp(17px,2.3vw,28px);line-height:1.25}.metric span{color:var(--muted);font-size:12px}.decision{margin-top:16px;background:#173021;color:#efffe8}.decision p{color:#d0e5c9}.decision ul{padding-left:20px}.pointer{position:fixed;z-index:9;pointer-events:none;color:#173021;text-shadow:0 0 3px white,1px 1px white;font-size:30px;transition:left .35s,top .35s}.target{outline:3px solid #58cc02;outline-offset:3px}summary{cursor:pointer}details{margin-top:18px}.note{font-size:13px}footer{margin-top:24px;color:var(--muted);font-size:12px}@media(max-width:800px){.shell{grid-template-columns:1fr}aside{padding:13px 18px}.steps{display:flex;flex-wrap:wrap}.steps li{font-size:12px;padding:5px}.brand-note,.side-note{display:none}.hero,.grid{grid-template-columns:1fr}.hero{padding-top:25px}.stats{grid-template-columns:repeat(2,1fr)}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.pointer{display:none}}
 </style>
-</head>
-<body>
-<main>
-<header>
-  <span class="pill">Independent portfolio demo · Synthetic data</span>
-  <h1>India Rollout Lab</h1>
-  <p>Evaluate a localized onboarding pilot. Compare first-lesson completion with day-7 retention, then decide whether the next rollout should proceed.</p>
-</header>
-<div class="controls">
-  <label for="market">Market
-    <select id="market">
-      <option value="all">Both markets</option>
-      <option value="Bengaluru">Bengaluru</option>
-      <option value="Hyderabad">Hyderabad</option>
-    </select>
-  </label>
-  <button id="run">Run rollout review</button>
-  <span class="note">Baseline vs. localized onboarding · 400 synthetic learners</span>
-</div>
-<noscript><p>Enable JavaScript to run the rollout review.</p></noscript>
-<section id="results" hidden aria-label="Rollout results">
-  <section id="decision" class="panel decision" aria-live="polite"></section>
-  <div id="metrics" class="metrics"></div>
-  <details class="panel">
-    <summary>Inspect counts and metric definitions</summary>
-    <div id="evidence" class="scroll"></div>
-    <p><strong>Activation.</strong> Unique learners with a first lesson completion in the first 24 hours, divided by learners with a complete 24-hour observation window.</p>
-    <p><strong>Day-7 retention.</strong> Unique learners with an activity event from 168 to under 192 hours after onboarding, divided by learners whose full day-7 window elapsed.</p>
-    <p class="note">Cohorts are synthetic and non-randomized. The comparison is descriptive. It cannot establish a causal lift or production readiness.</p>
-  </details>
+<div class="shell">
+<aside>
+<div class="brand"><span class="mark">d</span>India Growth Lab</div>
+<span class="tag brand-note">Country director simulation</span>
+<ol class="steps"><li aria-current="step">01 · Opportunity</li><li>02 · Localization</li><li>03 · Monetization</li><li>04 · Global product review</li></ol>
+<p class="side-note">An independent strategy demo by Madhu Poonacha</p>
+</aside>
+<main class="main">
+<header><span class="tag">Market strategy / India</span><span class="tag">Synthetic pilot · Unofficial concept</span></header>
+<section class="hero" id="intro">
+<div><span class="tag">01 / The opportunity</span><h1>From free habit<br>to <strong>paid fluency.</strong></h1>
+<p>Follow Asha, a Bengaluru job seeker preparing for an English interview. See how the India team tests a more relevant free lesson, earns a Max trial, and makes the case to global Product.</p>
+<button class="primary" id="run">▶ Run the strategy</button> <span class="note">One click · About 30 seconds</span></div>
+<div class="hero-art"><span class="tag">India / English for work</span><b>One learner.<br>Three product decisions.</b><span>Localize the context · Test the offer · Decide what to scale</span></div>
 </section>
-<footer class="note">Madhu Poonacha · Growth, product localization and regional execution</footer>
-</main>
-<script type="application/json" id="snapshots">
-{
-  "all": {
-    "as_of": "2026-10-20T00:00:00+00:00",
-    "market": null,
-    "cohorts": {
-      "baseline": {
-        "started": 200,
-        "activation_eligible": 200,
-        "activated": 112,
-        "retention_eligible": 200,
-        "retained": 62,
-        "activation_rate": 0.56,
-        "retention_rate": 0.31
-      },
-      "localized": {
-        "started": 200,
-        "activation_eligible": 200,
-        "activated": 128,
-        "retention_eligible": 200,
-        "retained": 60,
-        "activation_rate": 0.64,
-        "retention_rate": 0.3
-      }
-    }
-  },
-  "Bengaluru": {
-    "as_of": "2026-10-20T00:00:00+00:00",
-    "market": "Bengaluru",
-    "cohorts": {
-      "baseline": {
-        "started": 100,
-        "activation_eligible": 100,
-        "activated": 58,
-        "retention_eligible": 100,
-        "retained": 32,
-        "activation_rate": 0.58,
-        "retention_rate": 0.32
-      },
-      "localized": {
-        "started": 100,
-        "activation_eligible": 100,
-        "activated": 69,
-        "retention_eligible": 100,
-        "retained": 32,
-        "activation_rate": 0.69,
-        "retention_rate": 0.32
-      }
-    }
-  },
-  "Hyderabad": {
-    "as_of": "2026-10-20T00:00:00+00:00",
-    "market": "Hyderabad",
-    "cohorts": {
-      "baseline": {
-        "started": 100,
-        "activation_eligible": 100,
-        "activated": 54,
-        "retention_eligible": 100,
-        "retained": 30,
-        "activation_rate": 0.54,
-        "retention_rate": 0.3
-      },
-      "localized": {
-        "started": 100,
-        "activation_eligible": 100,
-        "activated": 59,
-        "retention_eligible": 100,
-        "retained": 28,
-        "activation_rate": 0.59,
-        "retention_rate": 0.28
-      }
-    }
-  }
-}
-</script>
+<section id="sim" hidden>
+<div class="toolbar"><button id="pause">Pause</button><button id="take">Take control</button><button id="replay">Replay</button><output id="mode">Playing walkthrough</output></div>
+<p id="caption" class="caption" aria-live="polite"></p>
+<div class="grid">
+<section class="panel"><span class="tag">Learner view</span><h2>Asha’s speaking practice</h2>
+<div class="lesson"><span class="tag">English interface · Free lesson</span><p id="prompt"></p><p id="hint" class="hint"></p></div>
+<button id="preview" style="margin-top:12px">Open sample Max Video Call</button>
+<div class="call" id="call" hidden><span class="tag">Max Video Call · Scripted preview</span><p><b>Coach</b> · “Tell me about a time you helped solve a problem at work.”</p><p><b>Asha</b> · “Our team missed a deadline, so I reorganized the handover.”</p><p><b>Feedback</b> · Add a concrete result to make the story stronger.</p></div></section>
+<section class="panel"><span class="tag">Country director controls</span><h2>Design the India pilot</h2>
+<div class="choices">
+<label>Lesson context<select id="lesson"><option value="generic">Generic English exercise</option><option value="work">Job interview + optional Romanized Hindi hint</option></select></label>
+<label>Max offer timing<select id="offer"><option value="none">Control · no new offer</option><option value="early">At onboarding</option><option value="earned">After two completed speaking lessons</option></select></label>
+<label>Monthly Max test price<select id="price"><option value="249">₹249</option><option value="299">₹299</option><option value="399">₹399</option></select></label>
+</div></section></div>
+<div class="stats" aria-label="Modeled outcomes">
+<div class="metric"><b id="trials"></b><span>Max trial starts</span></div><div class="metric"><b id="paid"></b><span>Max subscribers / 10,000 eligible</span></div><div class="metric"><b id="revenue"></b><span>Incremental gross monthly revenue</span></div><div class="metric"><b id="retention"></b><span>Day-7 engagement vs. control</span></div>
+</div>
+<section class="panel decision" id="decision" hidden><span class="tag">Global product review · Draft recommendation</span><h2 id="verdict"></h2><p id="why"></p><ul>
+<li><b>India Growth</b> owns interviews, local examples, offer timing, and the experiment readout.</li>
+<li><b>Learning Design</b> approves optional hints and checks English speaking outcomes and cultural fit.</li>
+<li><b>Global Product and Engineering</b> review the shared Max experience, privacy and safety, and a reusable locale configuration.</li></ul>
+<p><b>Before expansion</b> · Run a randomized pilot with a holdout. Check day-7 engagement, day-30 paid retention, speaking improvement, and contribution after AI serving costs.</p></section>
+<details><summary>Model assumptions and decision thresholds</summary><p class="note">All inputs and outcomes are synthetic. The model uses 10,000 eligible free learners. The control has 400 trials, 100 paid starts at ₹299, and 30% day-7 engagement measured across all assigned learners, regardless of subscription. Incremental gross monthly revenue compares modeled paid starts × test price against ₹29,900 for control. This excludes fees, refunds, AI costs, and renewals. Early offers increase exposure and reduce engagement in this scenario. Local examples and later offers change the modeled trial and paid funnel. The draft gate requires at least 30% day-7 engagement and ₹5,000 incremental gross monthly revenue before recommending a limited pilot.</p></details>
+</section>
+<footer>Portfolio simulation by Madhu Poonacha · Illustrative assumptions and scripted dialogue</footer>
+</main></div>
+<div id="pointer" class="pointer" aria-hidden="true" hidden>➤</div>
 <script>
-"use strict";
-const snapshots = JSON.parse(document.getElementById("snapshots").textContent);
-const market = document.getElementById("market");
-const results = document.getElementById("results");
-const percent = value => value === null ? "—" : (100 * value).toFixed(1) + "%";
-const points = value => (value > 0 ? "+" : "") + (100 * value).toFixed(1) + " pp";
-
-function metric(title, base, local, rate, count, eligible) {
-  const delta = base[rate] === null || local[rate] === null ? null : local[rate] - base[rate];
-  const bars = [[base,"Baseline",""], [local,"Localized","localized"]].map(([row,label,style]) => `
-    <div class="bar-row">
-      <div class="bar-label"><span>${label}</span><strong>${percent(row[rate])} · ${row[count]}/${row[eligible]}</strong></div>
-      <div class="track" aria-hidden="true"><div class="bar ${style}" style="width:${(row[rate] ?? 0)*100}%"></div></div>
-    </div>`).join("");
-  return `<section class="panel metric"><h2>${title}</h2><div class="delta">${delta === null ? "—" : points(delta)}</div>${bars}</section>`;
+const get = id => document.getElementById(id);
+const [lesson, offer, price] = ["lesson", "offer", "price"].map(get);
+const money = new Intl.NumberFormat("en-IN", {style:"currency",currency:"INR",maximumFractionDigits:0});
+const count = new Intl.NumberFormat("en-IN");
+const steps = [...document.querySelectorAll(".steps li")];
+let position = 0;
+let timer;
+let running = false;
+let manual = false;
+function chapter(index) {
+  steps.forEach((step, i) => i === index ? step.setAttribute("aria-current", "step") : step.removeAttribute("aria-current"));
 }
-
-function runReview() {
-  const snapshot = snapshots[market.value];
-  const {baseline, localized} = snapshot.cohorts;
-  const activation = localized.activation_rate - baseline.activation_rate;
-  const retention = localized.retention_rate - baseline.retention_rate;
-  let title = "Continue the pilot and collect evidence";
-  let next = "Keep rollout coverage stable and validate the activation and retention signals in a randomized follow-up.";
-  let state = "continue";
-  if ([baseline.activation_rate, localized.activation_rate, baseline.retention_rate, localized.retention_rate].some(value => value === null)) {
-    title = "Wait for mature cohorts";
-    next = "Collect complete observation windows before comparing outcomes.";
-    state = "hold";
-  } else if (retention < -1e-9) {
-    title = "Hold expansion and investigate retention";
-    next = "Review the first-week journey by market and app version. Check lesson difficulty, return prompts and event instrumentation, then test one change against a randomized comparison.";
-    state = "hold";
-  } else if (activation <= 0) {
-    title = "Refine onboarding before expanding";
-    next = "Review onboarding drop-off and test the highest-friction step.";
-    state = "hold";
-  }
-  document.getElementById("decision").dataset.state = state;
-  document.getElementById("decision").innerHTML = `
-    <span class="eyebrow">Decision · ${snapshot.market || "Both markets"}</span>
-    <h2>${title}</h2><p>${next}</p>
-    <p class="note">Illustrative rule: hold expansion if day-7 retention declines. A stable retention signal still calls for validation before expansion.</p>`;
-  document.getElementById("metrics").innerHTML =
-    metric("First lesson within 24 hours", baseline, localized, "activation_rate", "activated", "activation_eligible") +
-    metric("Returned on day 7", baseline, localized, "retention_rate", "retained", "retention_eligible");
-  const rows = [["Baseline",baseline],["Localized",localized]].map(([label,row]) =>
-    `<tr><th scope="row">${label}</th><td>${row.started}</td><td>${row.activated}/${row.activation_eligible}</td><td>${row.retained}/${row.retention_eligible}</td></tr>`).join("");
-  document.getElementById("evidence").innerHTML = `<p class="note">Snapshot cutoff ${snapshot.as_of}</p><table><thead><tr><th>Cohort</th><th>Started</th><th>Activated / eligible</th><th>Returned / eligible</th></tr></thead><tbody>${rows}</tbody></table>`;
-  results.hidden = false;
+function model(local, timing, amount) {
+  const trials = timing === "none" ? 400 : timing === "early" ? 1200 : local ? 1050 : 750;
+  const priceFactor = {249:1.12,299:1,399:.65}[amount];
+  const conversion = timing === "none" ? .25 : timing === "early" ? .14 : local ? .28 : .21;
+  const paid = Math.round(trials * conversion * priceFactor);
+  const retention = 30 + (local ? 2 : 0) - (timing === "early" ? 4 : 0);
+  const revenue = paid * amount - 29900;
+  return {trials, paid, retention, revenue};
 }
-
-document.getElementById("run").addEventListener("click", runReview);
-market.addEventListener("change", () => { results.hidden = true; });
+function render() {
+  const local = lesson.value === "work";
+  const timing = offer.value;
+  const amount = timing === "none" ? 299 : Number(price.value);
+  price.disabled = timing === "none";
+  get("prompt").textContent = local ? "Practise introducing yourself to an interviewer in English." : "Practise introducing yourself to someone new.";
+  get("hint").textContent = local ? "Optional hint · Apne kaam ka ek example dijiye. Then explain your role in English." : "Example · Hi, my name is Asha.";
+  const result = model(local, timing, amount);
+  get("trials").textContent = count.format(result.trials);
+  get("paid").textContent = count.format(result.paid);
+  get("revenue").textContent = money.format(result.revenue);
+  const delta = result.retention - 30;
+  get("retention").textContent = result.retention + "% (" + (delta > 0 ? "+" : "") + delta + " pp)";
+  const hold = result.retention < 30;
+  const ready = result.revenue >= 5000 && timing !== "none";
+  get("verdict").textContent = hold ? "Hold the offer rollout" : ready ? "Propose a limited India pilot" : "Refine the offer before piloting";
+  get("why").textContent = hold ? "The early offer breaches the day-7 engagement floor, even when it generates paid starts." : ready ? "The modeled scenario clears both draft gates. Ask global teams to approve a bounded experiment and validate the assumptions." : "The modeled incremental revenue is below the draft threshold, or the new offer is disabled.";
+}
+const scenes = [
+  [1,"lesson","work","Asha already uses the English interface. The India team changes the practice context and makes the Romanized Hindi hint optional."],
+  [2,"preview",null,"Asha previews a job-interview conversation. The free lesson remains available."],
+  [2,"offer","early","Try offering Max immediately. Trial volume rises, but day-7 engagement falls below the control."],
+  [2,"offer","earned","Move the offer after two completed speaking lessons. Compare trial starts, paid starts, and day-7 engagement."],
+  [2,"price","399","Stress-test ₹399. Higher price can reduce paid starts enough to offset the price increase."],
+  [2,"price","299","Return to ₹299 for the first test. Treat the pricing response as a hypothesis."],
+  [3,"decision",null,"Take the results to global Product and Learning Design. Ask for a limited pilot with explicit evidence gates."]
+];
+function clearHighlight() {
+  get("pointer").hidden = true;
+  document.querySelector(".target")?.classList.remove("target");
+}
+function advance() {
+  const [phase,id,value,caption] = scenes[position];
+  chapter(phase);
+  get("caption").textContent = caption;
+  const target = get(id);
+  if (id === "decision") target.hidden = false;
+  target.scrollIntoView({block:"nearest"});
+  clearHighlight();
+  target.classList.add("target");
+  const rect = target.getBoundingClientRect();
+  const pointer = get("pointer");
+  pointer.style.left = Math.min(innerWidth - 36, rect.right - 22) + "px";
+  pointer.style.top = Math.min(innerHeight - 38, Math.max(0, rect.top + 3)) + "px";
+  pointer.hidden = false;
+  timer = setTimeout(() => {
+    if (value !== null) {
+      target.value = value;
+      target.dispatchEvent(new Event("change"));
+    } else if (id === "preview") {
+      target.click();
+    }
+    position++;
+    timer = setTimeout(() => {
+      if (position < scenes.length) advance();
+      else stop("Walkthrough complete");
+    }, 3300);
+  }, 650);
+}
+function stop(message) {
+  clearTimeout(timer);
+  running = false;
+  clearHighlight();
+  get("mode").textContent = message;
+  get("pause").textContent = "Resume";
+  get("pause").disabled = manual || position >= scenes.length;
+}
+function play() {
+  running = true;
+  get("pause").disabled = false;
+  get("pause").textContent = "Pause";
+  get("mode").textContent = "Playing walkthrough";
+  advance();
+}
+function start() {
+  clearTimeout(timer);
+  clearHighlight();
+  manual = false;
+  position = 0;
+  lesson.value = "generic";
+  offer.value = "none";
+  price.value = "249";
+  get("call").hidden = true;
+  get("preview").textContent = "Open sample Max Video Call";
+  get("decision").hidden = true;
+  get("intro").hidden = true;
+  get("sim").hidden = false;
+  render();
+  get("pause").focus();
+  play();
+}
+function takeControl() {
+  manual = true;
+  stop("Manual mode");
+  get("caption").textContent = "Try a different lesson, offer timing, or price. The recommendation updates as you change the inputs.";
+  get("decision").hidden = false;
+  chapter(3);
+}
+get("run").onclick = get("replay").onclick = start;
+get("take").onclick = takeControl;
+get("pause").onclick = () => running ? stop("Paused") : play();
+get("preview").onclick = () => {
+  const call = get("call");
+  call.hidden = !call.hidden;
+  get("preview").textContent = call.hidden ? "Open sample Max Video Call" : "Close sample Max Video Call";
+};
+[lesson,offer,price].forEach(input => input.addEventListener("change", event => {
+  if (event.isTrusted) takeControl();
+  render();
+}));
 </script>
-</body>
 </html>
